@@ -20,7 +20,7 @@ let wins = {
 };
 
 initializeGame();
-
+//this function begins the game
 function initializeGame(){
     cells.forEach(cell => cell.addEventListener("click", cellClicked))
     restartBtn.addEventListener("click", restartGame);
@@ -35,14 +35,17 @@ function cellClicked(){
     updateCell(this, cellIndex);
     checkWinner();
 }
+//this function lets the cell know what player is clicking it and sets it 
 function updateCell(cell, index){
     options[index] = currentPlayer;
     cell.textContent = currentPlayer;
 }
+//this function uses ternary to switch the player
 function changePlayer(){
     currentPlayer = (currentPlayer == "X") ? "O" : "X";
     statusText.textContent = `${currentPlayer}'s turn`
 }
+//this function uses a standard for loop set up to check the winner by comparing three cells at a time
 function checkWinner(){
     let roundWon = false;
     for(let i = 0; i < winConditions.length; i++){
@@ -73,6 +76,7 @@ function checkWinner(){
         changePlayer();
     }
 }
+//this function resets the options to empty and reverts back to the starting text
 function restartGame(){
     currentPlayer = "X";
     options = ["", "", "", "", "", "", "", "",""];
