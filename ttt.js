@@ -1,4 +1,4 @@
-const cells = document.querySelectorAll(".cell");
+const cells = document.querySelectorAll("[cell]");
 const statusText = document.querySelector("#statusText");
 const restartBtn = document.querySelector("#restartBtn");
 const winConditions = [
@@ -48,25 +48,34 @@ function changePlayer(){
 //this function uses a standard for loop set up to check the winner by comparing three cells at a time
 function checkWinner(){
     let roundWon = false;
+    let winningCells = [];
+
     for(let i = 0; i < winConditions.length; i++){
         const condition = winConditions[i];
         const cellA = options[condition[0]];
         const cellB = options[condition[1]];
-        const cellC = options[condition[2]]
+        const cellC = options[condition[2]];
         if(cellA == "" || cellB == "" || cellC == ""){
             continue;
         }
         if(cellA == cellB && cellB == cellC){
             roundWon = true;
+            winningCells = condition;
             break;
         }
     }
+
     if(roundWon){
         statusText.textContent = `${currentPlayer} wins!`;
         wins[currentPlayer]++;
         document.getElementById("winCount" + currentPlayer).textContent = wins[currentPlayer];
         running = false;
-        alert(`Congratulations Player ${currentPlayer}, You Won!`)
+        alert(`Congratulations Player ${currentPlayer}, You Won!`);
+
+        // Highlight the winning cells
+        winningCells.forEach(cellIndex => {
+            cells[cellIndex].classList.add("winning-cell");
+        });
     }
     else if(!options.includes("")){
         statusText.textContent = `Draw!`;
@@ -76,11 +85,15 @@ function checkWinner(){
         changePlayer();
     }
 }
-//this function resets the options to empty and reverts back to the starting text
+
+// Reset the game
 function restartGame(){
     currentPlayer = "X";
     options = ["", "", "", "", "", "", "", "",""];
     statusText.textContent = `${currentPlayer}'s turn`;
-    cells.forEach(cell => cell.textContent = "");
+    cells.forEach(cell => {
+        cell.textContent = "";
+        cell.classList.remove("winning-cell");
+    });
     running = true;
 }

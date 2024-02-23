@@ -95,3 +95,7 @@ button:active {
     font-family: "Permanent Marker", cursive;
     font-size:25px;
 }
+
+.winning-cell {
+    background-color: yellow;
+}
