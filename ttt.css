@@ -97,5 +97,6 @@ button:active {
 }
 
 .winning-cell {
-    background-color: yellow;
+    background-color: aqua;
+    color:purple
 }
