@@ -1,11 +1,13 @@
 .cell{
-    width:100px;
-    height:100px;
-    border:2px solid;
+    width: 100px;
+    height: 100px;
+    border: 2px solid;
     box-shadow: 0 0 0 2px;
     line-height: 100px;
-    font-size:75px;
+    font-size: 75px;
     cursor: pointer;
+    display: relative;
+    z-index: 1;
 }
 
 #gameContainer{
@@ -14,10 +16,10 @@
 }
 
 #cellContainer{
-    display:grid;
+    display: grid;
     grid-template-columns: repeat(3, auto);
-    width:225px;
-    margin:auto;
+    width: 225px;
+    margin: auto;
     justify-content: center;
     --glow-color: rgb(217, 176, 255);
     color: var(--glow-color);
@@ -25,6 +27,11 @@
 
 body{
     background-image: url("https://res.cloudinary.com/practicaldev/image/fetch/s--BuPz-p40--/c_imagga_scale,f_auto,fl_progressive,h_420,q_auto,w_1000/https://dev-to-uploads.s3.amazonaws.com/uploads/articles/nphrgz8yfnjylrwfr0yl.png");
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 100vh;
+    margin: 0;
 }
 
 h1{
@@ -35,6 +42,11 @@ h1{
 }
 
 h2{
+    --glow-color: rgb(217, 176, 255);
+    color: var(--glow-color);
+}
+
+p{
     --glow-color: rgb(217, 176, 255);
     color: var(--glow-color);
 }
@@ -89,14 +101,17 @@ button:active {
 }
 
 .score{
-    padding-top:20px;
+    padding-top: 20px;
     --glow-color: rgb(217, 176, 255);
     color: var(--glow-color);
     font-family: "Permanent Marker", cursive;
-    font-size:25px;
+    font-size: 25px;
+    margin-bottom: 20px;
 }
 
 .winning-cell {
-    background-color: aqua;
-    color:purple;
+    color: #a3f7ff;
+    font-weight: bold;
+    text-shadow: 0 0 8px #a3f7ff;
+    z-index: 100;
 }
