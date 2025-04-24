@@ -14,7 +14,6 @@ A stylish web-based Tic-Tac-Toe game built with HTML, CSS, and JavaScript. Play 
 ## 📸 Preview
 
 ![Tic Tac Toe Screenshot](ttt.png)  
-*Add your own screenshot in the same directory and name it `screenshot.png`*
 
 ## 🚀 Getting Started
 
