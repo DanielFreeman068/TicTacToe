@@ -26,10 +26,27 @@ To run the game locally:
 ```bash
 git clone https://github.com/your-username/tic-tac-toe-game.git
 cd tic-tac-toe-game
+```
 
-tic-tac-toe/
-│
-├── index.html         # Main HTML file
-├── ttt.css            # Styles for layout and glowing effects
-├── ttt.js             # Game logic and AI functionality
-└── README.md          # You're reading it now!
+## 🧠 How the AI Works
+
+The computer opponent follows a simple strategy:
+
+- Try to win if possible.  
+- Block the human player if they're about to win.  
+- Take the center if available.  
+- Otherwise, choose a random open cell.
+
+---
+
+## ✨ Technologies Used
+
+- **HTML5**
+- **CSS3** (Grid, Variables, Box Shadows)
+- **JavaScript** (DOM Manipulation, Game Logic)
+
+---
+
+## 📃 License
+
+This project is open source and free to use.
