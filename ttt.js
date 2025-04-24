@@ -35,6 +35,7 @@ function initializeGame() {
     modeBtn.addEventListener("click", toggleMode);
     statusText.textContent = `${currentPlayer}'s turn`;
     running = true;
+    enableCells();
 }
 
 initializeGame();
@@ -56,8 +57,10 @@ function cellClicked() {
     checkWinner();
 
     if (vsComputer && running && currentPlayer === computerPlayer) {
+        disableCells();
         setTimeout(() => {
             computerMove();
+            if (running) enableCells();
         }, 500);
     }
 }
@@ -118,6 +121,7 @@ function restartGame() {
         cell.classList.remove("winning-cell");
     });
     running = true;
+    enableCells();
 }
 
 // Handles the computer's move with basic strategy and updates the game
@@ -155,4 +159,18 @@ function findWinningMove(player) {
         if (options[b] === player && options[c] === player && options[a] === "") return a;
     }
     return -1;
+}
+
+// Temporarily disables cells click event listener
+function disableCells() {
+    cells.forEach(cell => cell.removeEventListener("click", cellClicked));
+}
+
+// Turns back on the cells click event listener
+function enableCells() {
+    cells.forEach(cell => {
+        if (cell.textContent === "") {
+            cell.addEventListener("click", cellClicked);
+        }
+    });
 }
