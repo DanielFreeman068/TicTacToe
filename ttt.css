@@ -104,7 +104,6 @@ button:active {
     padding-top: 20px;
     --glow-color: rgb(217, 176, 255);
     color: var(--glow-color);
-    font-family: "Permanent Marker", cursive;
     font-size: 25px;
     margin-bottom: 20px;
 }
