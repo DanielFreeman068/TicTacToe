@@ -48,4 +48,4 @@ The computer opponent follows a simple strategy:
 
 ## 📃 License
 
-This project is open source and free to use.
+This project is licensed under the MIT License - see the LICENSE file for details.
